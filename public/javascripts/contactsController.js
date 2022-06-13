@@ -24,6 +24,22 @@ export class ContactController {
 
     this.handleSearch();
     document.querySelector('#tags-div').addEventListener('click', this.retrieveContactsByTag);
+
+    let li = Array.from(document.querySelectorAll('#contact-container li'));
+    li.forEach(tag => {
+      tag.addEventListener('click', this.handleModal);
+    });
+  }
+
+  handleModal = async (event)  => {
+    event.preventDefault();
+    event.stopPropagation();
+    let id = event.target.closest('a').getAttribute('href');
+    const contact = await this.manager.retrieveSingleContact(id);
+    console.log(contact);
+    this.view.showModal(contact);
+    document.querySelector('#back').addEventListener('click', this.view.hideModal);
+    // this.resetView();
   }
 
   handleClickAdd = () => {

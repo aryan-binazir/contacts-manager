@@ -7,11 +7,31 @@ export class ContactsView {
   registerTemplates = () => {
     Handlebars.registerPartial("contact", document.querySelector('#contact-card').innerHTML);
     const contactTemplate = Handlebars.compile(document.querySelector('#contacts').innerHTML);
+    const modalTemplate = Handlebars.compile(document.querySelector('#modal-card').innerHTML);
     const editTemplate = Handlebars.compile(document.querySelector('#edit-html').innerHTML);
     const addTemplate = Handlebars.compile(document.querySelector('#add-form').innerHTML);
     const noContactTemplate = Handlebars.compile(document.querySelector('#no-contacts').innerHTML);
     this.templates = { contactTemplate, editTemplate, addTemplate,
-      noContactTemplate };
+      noContactTemplate, modalTemplate };
+  }
+
+  showModal(contact) {
+    const modal = document.querySelector('#modal');
+    const modalLayer = document.querySelector('#modal-layer');
+    this.clearContents(modal);
+    modalLayer.classList.replace('hide', 'show');
+    modal.classList.replace('hide', 'show');
+
+    const html = this.templates.modalTemplate(contact);
+    modal.insertAdjacentHTML('beforeend', html);    
+  }
+
+  hideModal= () => {
+    const modal = document.querySelector('#modal');
+    const modalLayer = document.querySelector('#modal-layer');
+    this.clearContents(modal);
+    modalLayer.classList.replace('show', 'hide');
+    modal.classList.replace('show', 'hide');
   }
 
   showAddForm() {

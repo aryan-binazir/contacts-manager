@@ -13,7 +13,7 @@
   <script id='contact-card' type="text/x-handlebars-template">
     <fieldset>
       <ul>
-        <li>{{full_name}}</li>
+        <a href={{id}}><li>{{full_name}}</li></a>
         <li>{{phone_number}}</li>
         <li>{{email}}</li>
         <li>{{tags}}</li>
@@ -21,6 +21,17 @@
 
       <button class="edit" value={{id}}>Edit</button>
       <button class="delete" value={{id}}>Delete</button>
+  </fieldset>
+  </script>
+  <script id='modal-card' type="text/x-handlebars-template">
+    <fieldset>
+      <ul>
+        <li>{{full_name}}</li>
+        <li>{{phone_number}}</li>
+        <li>{{email}}</li>
+        <li>{{tags}}</li>
+      </ul>
+      <button class="back" id="back" type="button">Back</button>
   </fieldset>
   </script>
   <script id="contacts" type="text/x-handlebars-template">
@@ -34,8 +45,8 @@
     <fieldset>
       <form id="edit-form">
         <ul>
-          <li>Name: <input name="full_name" value="{{full_name}}"> </li>
-          <li>Phone: <input name="phone_number" value="{{phone_number}}""> </li>
+         <li>Name: <input name="full_name" value="{{full_name}}"></li>
+          <li>Phone: <input name="phone_number" value="{{phone_number}}"> </li>
           <li>Email: <input name="email" value="{{email}}"> </li>
           <li>Tags: <input name="tags" value="{{tags}}"> </li>
         </ul>
@@ -74,6 +85,10 @@
   </div>
   <div id="contact-container">
   </div>
+  <div id="modal-layer" class="hide"></div>
+      <div id="modal" class="hide">
+        
+      </div>
   <div id="tag-container">
   </div>
   <script src="/javascripts/main.js" type="module"></script>
