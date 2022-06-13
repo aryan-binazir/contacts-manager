@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contacts Manager</title>
+  <script src="/javascripts/jquery.js"></script>
+  <script src="/javascripts/handlebars.js"></script>
+  <link rel="stylesheet" href="stylesheets/styles.css"/>
+</head>
+<body>
+  <script id='contact-card' type="text/x-handlebars-template">
+    <fieldset>
+      <ul>
+        <li>{{full_name}}</li>
+        <li>{{phone_number}}</li>
+        <li>{{email}}</li>
+        <li>{{tags}}</li>
+      </ul>
+
+      <button class="edit" value={{id}}>Edit</button>
+      <button class="delete" value={{id}}>Delete</button>
+  </fieldset>
+  </script>
+  <script id="contacts" type="text/x-handlebars-template">
+    {{#each contacts}}
+      {{> contact}}
+    {{/each}}
+
+  </script>
+
+  <script id="edit-html" type="text/x-handlebars-template">
+    <fieldset>
+      <form id="edit-form">
+        <ul>
+          <li>Name: <input name="full_name" value="{{full_name}}"> </li>
+          <li>Phone: <input name="phone_number" value="{{phone_number}}""> </li>
+          <li>Email: <input name="email" value="{{email}}"> </li>
+          <li>Tags: <input name="tags" value="{{tags}}"> </li>
+        </ul>
+
+
+        <button class="submit" value={{id}} type = "submit">Submit</button>
+        <button class="cancel" id="cancel" type="button">Cancel</button>
+      </form>
+  </fieldset>
+  </script>
+  <script id='add-form' type="text/x-handlebars-template">
+    <fieldset>
+      <form id="addForm">
+        <ul>
+          <li>Name: <input name="full_name" > </li>
+          <li>Phone: <input name="phone_number"> </li>
+          <li>Email: <input name="email"> </li>
+          <li>Tags: <input name="tags"> </li>
+        </ul>
+        <button class="submit" type="submit">Add</button>
+        <button class="cancel" id="cancel" type="button">Cancel</button>
+      </form>
+  </fieldset>
+  </script>
+  <script id="no-contacts" type="text/x-handlebars-template">
+    <fieldset>
+      <p>There are no contacts. <br></p>
+      <button type="button" id="add">Add Contact</button>
+    </fieldset>
+  </script>
+  <div>
+    <fieldset>
+      <button id="add" type="button">Add Contact</button>
+      <input id="search" type="search" placeholder="Search">
+    </fieldset>
+  </div>
+  <div id="contact-container">
+  </div>
+  <div id="tag-container">
+  </div>
+  <script src="/javascripts/main.js" type="module"></script>
+</body>
+</html>

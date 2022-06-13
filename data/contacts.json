@@ -1,0 +1,30 @@
+[
+  {
+    "full_name": "Mike Johnson",
+    "phone_number": "555-555-5555",
+    "email": "MikeJ@gmail.com",
+    "tags": "work, friend",
+    "id": 1
+  },
+  {
+    "full_name": "Mykaela Robertson",
+    "phone_number": "555-555-5555",
+    "email": "MRob@gmail.com",
+    "tags": "work, friend",
+    "id": 2
+  },
+  {
+    "full_name": "Jane",
+    "phone_number": "555-555-5555",
+    "email": "JChang@protonmail.com",
+    "tags": "friend",
+    "id": 3
+  },
+  {
+    "full_name": "Louis Black",
+    "phone_number": "555-555-5555",
+    "email": "JS@hotmail.com",
+    "tags": "work, friend, doctor",
+    "id": 4
+  }
+]
