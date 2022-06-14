@@ -26,7 +26,7 @@ export class ContactsView {
     modal.insertAdjacentHTML('beforeend', html);    
   }
 
-  hideModal= () => {
+  hideModal = () => {
     const modal = document.querySelector('#modal');
     const modalLayer = document.querySelector('#modal-layer');
     this.clearContents(modal);
