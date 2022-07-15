@@ -1,2 +1,2 @@
 # contacts-manager
-Contacts manager application
+Contacts manager application focused mostly on backend functionality
